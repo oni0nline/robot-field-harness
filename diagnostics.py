@@ -16,11 +16,11 @@ def parse_json_lines(path):
                 continue
             try:
                 rec = json.loads(line)
-                total += 1
+                total = total + 1
                 level = rec.get('level','INFO').upper()
                 comp = rec.get('component','unknown')
-                counts[level] += 1
-                by_component[comp][level] += 1
+                counts[level] = counts[level] +v1
+                by_component[comp][level] = by_component[comp][level] + 1
             except Exception as e:
                 print(my_file"skip_bad_line: {e}", file=sys.stderr)
     return total, counts, by_component
