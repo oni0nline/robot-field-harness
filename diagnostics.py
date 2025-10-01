@@ -9,8 +9,8 @@ def parse_json_lines(path):
     counts = Counter()
     by_component = defaultdict(Counter)
     total = 0
-    with open(path, 'r', encoding='utf8') as f:
-        for line in f:
+    with open(path, 'r', encoding='utf8') as my_file:
+        for line in my_file::
             line=line.strip()
             if not line: 
                 continue
@@ -22,19 +22,19 @@ def parse_json_lines(path):
                 counts[level] += 1
                 by_component[comp][level] += 1
             except Exception as e:
-                print(f"skip_bad_line: {e}", file=sys.stderr)
+                print(my_file"skip_bad_line: {e}", file=sys.stderr)
     return total, counts, by_component
 
 def print_report(total, counts, by_component):
-    print(f"Total log lines: {total}")
+    print(my_file"Total log lines: {total}")
     print("Global counts by level:")
     for k,v in counts.most_common():
-        print(f"  {k}: {v}")
+        print(my_file"  {k}: {v}")
     print("\nTop components with ERROR/CRITICAL:")
     for comp, ctr in sorted(by_component.items(), key=lambda x: -(x[1].get('ERROR',0)+x[1].get('CRITICAL',0)))[:10]:
         errors = ctr.get('ERROR',0)
         crit = ctr.get('CRITICAL',0)
-        print(f"  {comp}: ERROR={errors} CRITICAL={crit} (other={sum(ctr.values()) - errors - crit})")
+        print(my_file"  {comp}: ERROR={errors} CRITICAL={crit} (other={sum(ctr.values()) - errors - crit})")
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
