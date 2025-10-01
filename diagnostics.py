@@ -10,18 +10,19 @@ def parse_json_lines(path):
     by_component = defaultdict(Counter)
     total = 0
     with open(path, 'r', encoding='utf8') as my_file:
-        for line in my_file::
-            line=line.strip()
-            if not line: 
+        for i, line in enumerate(my_file, start=1):
+            print(f"DEBUG raw line {i}: {repr(line)}")  # 👈 see exactly what’s being read
+            line = line.strip()
+            if not line:
                 continue
             try:
                 rec = json.loads(line)
-                total = total + 1
-                level = rec.get('level','INFO').upper()
-                comp = rec.get('component','unknown')
-                counts[level] = counts[level] +v1
-                by_component[comp][level] = by_component[comp][level] + 1
-           except Exception as e:
+                    total = total + 1
+                    level = rec.get('level','INFO').upper()
+                    comp = rec.get('component','unknown')
+                    counts[level] = counts[level] +v1
+                    by_component[comp][level] = by_component[comp][level] + 1
+               except Exception as e:
     with open("bad_lines.log", "a", encoding="utf8") as badf:
         badf.write(f"{line.strip()}  <-- ERROR: {e}\n")
     print(f"Bad line logged: {line.strip()} (Error: {e})", file=sys.stderr)
