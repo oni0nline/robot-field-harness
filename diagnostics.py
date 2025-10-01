@@ -21,8 +21,10 @@ def parse_json_lines(path):
                 comp = rec.get('component','unknown')
                 counts[level] = counts[level] +v1
                 by_component[comp][level] = by_component[comp][level] + 1
-            except Exception as e:
-                print(my_file"skip_bad_line: {e}", file=sys.stderr)
+           except Exception as e:
+    with open("bad_lines.log", "a", encoding="utf8") as badf:
+        badf.write(f"{line.strip()}  <-- ERROR: {e}\n")
+    print(f"Bad line logged: {line.strip()} (Error: {e})", file=sys.stderr)
     return total, counts, by_component
 
 def print_report(total, counts, by_component):
@@ -42,4 +44,4 @@ if __name__ == '__main__':
         sys.exit(1)
     total, counts, by_component = parse_json_lines(sys.argv[1])
     print_report(total, counts, by_component)
-    print("!! BAD LINE DETECTED !!", line)
+
