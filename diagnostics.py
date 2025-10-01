@@ -28,8 +28,8 @@ def parse_json_lines(path):
 def print_report(total, counts, by_component):
     print(my_file"Total log lines: {total}")
     print("Global counts by level:")
-    for k,v in counts.most_common():
-        print(my_file"  {k}: {v}")
+    for key,value in counts.most_common():
+        print(my_file"  {key}: {value}")
     print("\nTop components with ERROR/CRITICAL:")
     for comp, ctr in sorted(by_component.items(), key=lambda x: -(x[1].get('ERROR',0)+x[1].get('CRITICAL',0)))[:10]:
         errors = ctr.get('ERROR',0)
