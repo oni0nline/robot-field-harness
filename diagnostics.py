@@ -42,3 +42,4 @@ if __name__ == '__main__':
         sys.exit(1)
     total, counts, by_component = parse_json_lines(sys.argv[1])
     print_report(total, counts, by_component)
+    print("!! BAD LINE DETECTED !!", line)
