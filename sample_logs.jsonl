@@ -4,4 +4,4 @@
 {"timestamp":"2025-10-01T09:00:08Z","component":"camera","level":"ERROR","message":"camera disconnected"}
 {"timestamp":"2025-10-01T09:00:09Z","component":"power_supply","level":"CRITICAL","message":"voltage drop detected"}
 {"timestamp":"2025-10-01T09:00:12Z","component":"imu","level":"INFO","message":"arms calibrated"}
-{"timestamp":"2025-10-01T09:00:19Z","component":"N/A","level":"INFO","message":"legs calibrated"}
+{"timestamp":"2025-10-01T09:00:19Z","component":"N/A"," ":" ","message":" "}
