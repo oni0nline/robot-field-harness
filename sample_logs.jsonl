@@ -1,0 +1,6 @@
+{"timestamp":"2025-10-01T09:00:00Z","component":"motor_controller","level":"INFO","message":"motor init success"}
+{"timestamp":"2025-10-01T09:00:05Z","component":"camera","level":"INFO","message":"frame captured"}
+{"timestamp":"2025-10-01T09:00:06Z","component":"motor_controller","level":"ERROR","message":"motor overtemp"}
+{"timestamp":"2025-10-01T09:00:08Z","component":"camera","level":"ERROR","message":"camera disconnected"}
+{"timestamp":"2025-10-01T09:00:09Z","component":"power_supply","level":"CRITICAL","message":"voltage drop detected"}
+{"timestamp":"2025-10-01T09:00:12Z","component":"imu","level":"INFO","message":"arms calibrated"}
